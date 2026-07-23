@@ -46,10 +46,26 @@ Current as of **23 July 2026**. Covers everything an individual (Personal accoun
 
 ## Part B — Upcoming: Android Developer Verification (Not a Play requirement yet)
 
-Separate from Play Store publishing — a device-level check for identity-verifying Android developers, including those sideloading outside Play.
+Separate from Play Store publishing — a **device-level** check that requires identity verification for *any* Android app, regardless of where it's distributed from, including sideloaded APKs and third-party stores (Samsung Galaxy Store, Xiaomi GetApps, OPPO App Market, etc.).
 
+### How it works
+- Google is pushing a system component (the "Android Developer Verifier") to devices on **Android 8+**, starting June 2026.
+- This component checks, on-device, whether an app's developer has a verified identity registered with Google — **before allowing a normal install**.
+- If the developer is unverified: the app either won't install through the normal tap-to-install flow, or the user must go through a deliberately high-friction "advanced flow" — enable developer mode, restart the device, wait 24 hours, re-authenticate.
+- Applies to any *certified* Android device (devices with Google Play Services — 95%+ of Android devices outside China).
+
+### Exemptions
+- [ ] **Limited Distribution accounts** — free, no government ID required, capped at 20 devices (aimed at students/hobbyists sharing apps with a small group)
+- [ ] Installing via **ADB** (Android Debug Bridge) always bypasses the check, regardless of verification status
+
+### Timeline
 - [ ] **Not required for India yet.** Enforcement starts **30 Sept 2026** in Brazil, Indonesia, Singapore, Thailand only.
-- [ ] Global rollout (including India) expected in **2027** — track this if you plan to distribute APKs directly outside Play in the future.
+- [ ] Global rollout (including India) expected in **2027** — exact rules may still change based on developer/industry feedback before then.
+
+### Does this affect apps already published?
+- [ ] **No retroactive impact.** The check runs at install/update time on certified devices — apps already installed on a user's phone keep running regardless.
+- [ ] **Play Store apps are already covered.** Google has stated over 99% of Play developer apps are already registered/verified under this system, since it draws from the same developer identity data as Play Console.
+- [ ] **Only relevant if distributing outside Play.** This mainly matters if you plan to hand out APKs directly (e.g., for internal/enterprise use) once the requirement reaches India — not a concern for apps published through Play Store.
 
 ---
 
